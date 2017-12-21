@@ -1,11 +1,13 @@
 package com.ximo.redis.springbootdataredis.ops;
 
 import com.ximo.redis.springbootdataredis.constant.RedisConstant;
+import com.ximo.redis.springbootdataredis.util.KeyUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
 
 import java.util.UUID;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author 朱文赵
@@ -20,8 +22,10 @@ public class StringValueOps {
 
     public void redisOps() {
         String token = UUID.randomUUID().toString();
+        Integer expire = RedisConstant.EXPIRE;
+        String value = KeyUtil.generateUniqueKey();
         stringRedisTemplate.opsForValue()
-                .set(String.format(RedisConstant.TOKEN_PREFIX, token), null, 0, null);
+                .set(String.format(RedisConstant.TOKEN_PREFIX, token), value, expire, TimeUnit.SECONDS);
     }
 
 
