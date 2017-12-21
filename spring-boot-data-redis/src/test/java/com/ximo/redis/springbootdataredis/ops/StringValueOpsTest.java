@@ -6,6 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
+import java.time.format.DateTimeFormatter;
+
 /**
  * @author 朱文赵
  * @date 2017/12/21 13:24
@@ -21,5 +25,13 @@ public class StringValueOpsTest {
     @Test
     public void redisOps() {
         stringValueOps.redisOps();
+    }
+
+    @Test
+    public void test() {
+        LocalDateTime now = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMddHHmmssSSS");
+        String time = formatter.format(now);
+        System.out.println(time);
     }
 }
