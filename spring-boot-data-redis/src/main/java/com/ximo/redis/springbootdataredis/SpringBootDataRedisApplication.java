@@ -3,6 +3,11 @@ package com.ximo.redis.springbootdataredis;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+/**
+ * @author 朱文赵
+ * @date 2017/12/20 8:50
+ * @description
+ */
 @SpringBootApplication
 public class SpringBootDataRedisApplication {
 
